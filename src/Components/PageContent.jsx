@@ -1,8 +1,13 @@
 /** @format */
 
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
 const PageContent = () => {
+  const navigate = useNavigate()
+  const handleAddProduct = () => {
+    navigate('/product')
+  }
+
   return (
     <main className="flex-1 p-4  bg-gray-50 border-dotted">
       <h1 className="m-4 text-blue-900 font-bold text-2xl md:text-3xl">
@@ -17,7 +22,11 @@ const PageContent = () => {
             You can start selling as soon as you add a product.
           </p>
         </div>
-        <button className="p-2 bg-blue-600 rounded text-white mt-3 text-sm">
+
+        <button
+          className="p-2 bg-blue-600 rounded text-white mt-3 text-sm "
+          onClick={handleAddProduct}
+        >
           Add Product
         </button>
       </div>

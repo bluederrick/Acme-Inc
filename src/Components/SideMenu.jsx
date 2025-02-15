@@ -10,8 +10,8 @@ import {
   FaBars,
   FaTimes,
   FaBell,
-
 } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const SideMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -45,7 +45,9 @@ const SideMenu = () => {
           <li className="flex items-center gap-x-3 p-2 hover:bg-blue-300 rounded">
             <FaHome className="text-xl" />
             <a href="#" className="block">
-              Home
+              <Link to="/" className="block">
+                Home
+              </Link>
             </a>
           </li>
           <li className="flex items-center gap-x-3 p-2 hover:bg-blue-300 rounded">
@@ -57,7 +59,9 @@ const SideMenu = () => {
           <li className="flex items-center gap-x-3 p-2 hover:bg-blue-300 rounded">
             <FaBoxOpen className="text-xl" />
             <a href="#" className="block">
-              Products
+              <Link to="/product" className="block">
+                Products
+              </Link>
             </a>
           </li>
           <li className="flex items-center gap-x-3 p-2 hover:bg-blue-300 rounded">
