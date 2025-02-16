@@ -6,18 +6,28 @@ import { Outlet, useLocation } from 'react-router-dom'
 
 const Layout = () => {
   const location = useLocation()
+
+  // Define conditions for hiding elements
+  const hideSideMenu =
+    location.pathname === '/product' ||
+    location.pathname === '/order' ||
+    location.pathname === '/login'
+  const hideAppHeader =
+    location.pathname === '/product' ||
+    location.pathname === '/order' ||
+    location.pathname === '/login'
+
   return (
     <div className="flex h-screen">
-      {location.pathname !== '/product' && <SideMenu />}
+      {/* Show SideMenu unless on /product or /order */}
+      {!hideSideMenu && <SideMenu />}
 
       <div className="flex-1 flex flex-col">
-        {/* Conditionally render AppHeader only if NOT on the product page */}
-        {location.pathname !== '/product' && <AppHeader />}
+        {/* Show AppHeader unless on /product or /order */}
+        {!hideAppHeader && <AppHeader />}
 
         {/* Main content section */}
-
-        {/* Outlet will render the nested route component */}
-        <div className="flex-1 flex flex-col h-2/5 ">
+        <div className="flex-1">
           <Outlet />
         </div>
       </div>

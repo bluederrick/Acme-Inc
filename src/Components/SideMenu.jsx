@@ -53,7 +53,9 @@ const SideMenu = () => {
           <li className="flex items-center gap-x-3 p-2 hover:bg-blue-300 rounded">
             <FaShoppingCart className="text-xl" />
             <a href="#" className="block">
-              Order
+              <Link to="/order" className="block">
+                Orders
+              </Link>
             </a>
           </li>
           <li className="flex items-center gap-x-3 p-2 hover:bg-blue-300 rounded">

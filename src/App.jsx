@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './Components/Layout'
 import PageContent from './Components/PageContent' // Your main page content component
 import ProductCatalog from './Components/ProductCatalog'
+import Order from './Components/Order'
+import Login from './Components/Login'
 
 // Demo products (this would usually come from an API)
 const demoProducts = [
@@ -82,27 +84,47 @@ const demoProducts = [
   },
 ]
 
+const demoOrders = [
+  {
+    Order_ID: 'ORDO0',
+    Customer: 'John Doe', // Replace with actual image URL
+    Date: '2023-05-01',
+    Total: '$99.99',
+    Status: '$20',
+    stock: 'Shipped',
+  },
+  {
+    Order_ID: 1,
+    Customer: 'John Doe', // Replace with actual image URL
+    Date: '2023-05-01',
+    Total: '$99.99',
+    Status: '$20',
+    stock: 'processing',
+  },
+]
+
 function App() {
   const [products, setProducts] = useState([])
+  const [orders, setOrders] = useState([])
 
   // Simulate fetching data from an API
   useEffect(() => {
     setProducts(demoProducts)
+    setOrders(demoOrders)
   }, [])
 
   return (
     <Router>
       <Routes>
-        {/* Parent route with Layout */}
         <Route path="/" element={<Layout />}>
           {/* Default index route */}
           <Route index element={<PageContent />} />
-          {/* Nested route for the Product Catalog */}
+          <Route path="order" element={<Order orders={orders} />} />
           <Route
             path="product"
             element={<ProductCatalog products={products} />}
           />
-          {/* You can add more nested routes here */}
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
     </Router>

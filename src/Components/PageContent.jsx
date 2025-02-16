@@ -9,7 +9,7 @@ const PageContent = () => {
   }
 
   return (
-    <main className="flex-1 p-4  bg-gray-50 border-dotted">
+    <main className="flex-1 p-4  bg-gray-50 border-dotted h-screen">
       <h1 className="m-4 text-blue-900 font-bold text-2xl md:text-3xl">
         Inventory
       </h1>
